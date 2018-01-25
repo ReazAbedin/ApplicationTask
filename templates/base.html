@@ -1,0 +1,54 @@
+{% load static from staticfiles %}
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}3MW - Application Task{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"> <!--Cache will not be used-->
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    {% block add_css %}
+    {% endblock %}
+</head>
+
+<body>
+
+<!-- header start -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div>
+            <ul class="nav navbar-nav">
+                    <li {% block nav_sites%}{% endblock %}>
+                        <a href="{% url 'sites:site-list' %}">
+                            Sites
+                        </a>
+                    </li>
+                    <li {% block nav_summary %}{% endblock %}>
+                        <a href="{% url 'sites:summary' %}">
+                            Summary
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- header end -->
+
+<!-- main contents start-->
+{% block main_contents%}
+{% endblock%}
+<!-- main contents end-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% block add_javascipt %}
+{% endblock %}
+</body>
+</html>

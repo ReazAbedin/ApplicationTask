@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block nav_sites%}class="active"{% endblock %}
+
+{% block main_contents%}
+
+    <div class="container">
+        <h1>Sites</h1>
+        <ul class="list-group">
+            {% for site in sites %}
+                <li class="list-group-item">
+                    <a href="{% url 'sites:site_details' site_id=site.pk %}">
+                        {{ site.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endblock%}
